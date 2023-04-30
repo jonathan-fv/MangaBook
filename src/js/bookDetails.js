@@ -5,7 +5,6 @@ fetch('./src/data/data.json')
     .then(res => res.json())
     .then(data => {
         const book = data.find(item => item.isbn === isbn)
-        console.log(book)
         document.querySelector("#container_book").innerHTML = `
             <div class="card card_book">
                 <h2>${book.titre}</h2>

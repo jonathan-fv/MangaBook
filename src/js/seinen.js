@@ -1,16 +1,20 @@
+const urlParams = new URLSearchParams(window.location.search)
+const genre = urlParams.get('genre')
+
 fetch('./src/data/data.json')
-    .then(res => res.json())
-    .then (data =>{
-        data.forEach(item => {
+    .then(res=> res.json())
+    .then(data =>{
+        const filterData = data.filter(item =>item.genre === 'Seinen')
+        filterData.forEach(element => {
             document.querySelector("#dataContainer").innerHTML += `
             <div class="card">
-                <img src="./src/images/manga/${item.image}" class="card-img-top" alt="${item.titre}">
+                <img src="./src/images/manga/${element.image}" class="card-img-top" alt="${element.titre}">
                 <div class="card-body">
-                    <h5 class="card-title">${item.titre}</h5>
-                    <p class="card-text">${item.resume}</p>
+                    <h5 class="card-title">${element.titre}</h5>
+                    <p class="card-text">${element.resume}</p>
                 </div>
                 <div class="link d-flex justify-content-around ">
-                    <a href="book.html?isbn=${item.isbn}" class="btn btn-dark d-flex align-items-center"><span class="material-symbols-outlined">
+                    <a href="book.html?isbn=${element.isbn}" class="btn btn-dark d-flex align-items-center"><span class="material-symbols-outlined">
                     info
                     </span> &nbsp;Détails</a>
                     <button class="btn btn-primary d-flex justify-content-around">
@@ -28,4 +32,3 @@ fetch('./src/data/data.json')
             `
         });
     })
-
