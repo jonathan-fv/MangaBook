@@ -70,11 +70,18 @@ h2{
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
+.container .infos{
+    margin-top: 20px;
+}
+.container .card_book .cover img{
+    height: 500px;
+}
 .container .card_book .resume{
     margin: 20px;
 }
 .container .card_book .resume p{
     margin: 10px;
+    font-size: 16px;
 }
 .add .btn{
     margin: 10px;
